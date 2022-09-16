@@ -1,0 +1,54 @@
+<h1>Booking summary</h1>
+
+<%= @booking.flight.takeoff %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Departure</th>
+      <th>Arrival</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @booking.flight.departure.city %></td>
+      <td><%= @booking.flight.arrival.city %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Passenger details</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Passenger name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @booking.passengers.each_with_index do |p, i| %>
+    <tr>
+      <td><%= p.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h1>Contact details</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Passenger name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @booking.passengers.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+      <td><%= p.email %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Book more flights", root_path %>

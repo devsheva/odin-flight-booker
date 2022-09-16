@@ -15,7 +15,7 @@
     <strong><%= f.label "Arrival" %></strong>
     <%= flight.arrival.city %> <br>
 
-    <%= hidden_field :passenger_count, params[:passenger_count] %>
+    <%= f.hidden_field :passenger_count, value: params[:passenger_count] %>
     <%= f.submit "Continue to passenger details" %>
   <% end %>
 <% end %>
