@@ -1,0 +1,21 @@
+<%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
+  <% @available_flights.each do |flight| %>
+    <%= radio_button_tag(:flight, flight.id) %>
+
+    <br>
+    <strong><%= f.label "Takeoff" %></strong>
+    <%= flight.takeoff %> <br>
+
+    <strong><%= f.label "Duration" %></strong>
+    <%= flight.duration %> <br>
+
+    <strong><%= f.label "Departure" %></strong>
+    <%= flight.departure.city %> <br>
+
+    <strong><%= f.label "Arrival" %></strong>
+    <%= flight.arrival.city %> <br>
+
+    <%= hidden_field :passenger_count, params[:passenger_count] %>
+    <%= f.submit "Continue to passenger details" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with model: @flight, url: flights_path, local: true, method: :get do |f| %>
+  <%= f.label "Departure" %>
+  <%= f.select(:departure_id,
+               options_for_select(@airport_options, params[:departure_id]),
+               required: true
+      ) %>
+
+  <%= f.label "Arrival" %>
+  <%= f.select(:arrival_id,
+               options_for_select(@airport_options, params[:arrival_id]),
+               required: true
+      ) %>
+
+  <%= f.label "Passengers" %>
+  <%= f.select(:passenger_count,
+               options_for_select(1..4, params[:passenger_count]),
+               required: true
+      ) %>
+
+  <%= f.label "Date" %>
+  <%= f.date_field :takeoff,
+                   value: Date.today
+  %>
+
+  <%= f.submit "Find flights" %>
+
+<% end %>
